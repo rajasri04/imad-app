@@ -4,16 +4,41 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var container
+function createTemplate(tom)
 {
-    
-}
-
+var htmlTemplate=
+'<html>'+
+'    <head>'+
+'    <title>tom and jerry</title>'+
+'    <link href="/ui/style.css" rel="stylesheet" />'+
+'    </head>'+
+'    <body>'+
+'     <div class="container">'+
+'        <div>'+
+'            <a href = "/" > home </a>'+
+'            '+
+'        </div>'+
+'        <hr/>'+
+'        <h3 align="center">'+
+'            jerry'+
+'        </h3>'+
+'        <h2 align="right">'+
+'            tom'+
+'        </h2>'+
+'        <div>'+
+'            hai i am tom  .........  i am going to search jerry'+
+'        </div>'+
+'        '+
+'     </div>    '+
+'    </body>'+
+'</html>';
+return htmlTemplate;
+}	
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/tom',function(req,res){
-    res.sendFile(path.join(__dirname,'ui','tom.html'));
+    res.send(createTemplate(tom));
     });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
