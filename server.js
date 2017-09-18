@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 });
 
 
-var pool=new Pool(Config);
+var pool=new  Pool(Config);
 app.get('/score-db',function(req,res){
     pool.query('select * from score',function(err,result){
         if(err)
