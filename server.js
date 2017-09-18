@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 var pool=new  Pool(config);
 app.get('/score-db',function(req,res){
-    pool.query('select * from score',function(err,result){
+    pool.query('select * from score;',function(err,result){
         if(err)
         {
             res.status(500)send(err.toString());
