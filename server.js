@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-
 var pool=new  Pool(config);
 app.get('/score-db',function(req,res){
     pool.query('select * from score;',function(err,result){
