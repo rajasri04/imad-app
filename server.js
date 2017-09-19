@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool=new  Pool(config);
+var pool = new  Pool(config);
 app.get('/score-db',function(req,res){
     pool.query('select * from score;',function(err,result){
         if(err)
@@ -25,7 +25,7 @@ app.get('/score-db',function(req,res){
             res.status(500).send(err.toString()) ;
         }
         else{
-            res.send(JSON.stringfy(result));
+            res.send(JSON.stringify(result));
         }
     });
     
